@@ -1,11 +1,11 @@
-FROM ubuntu
+FROM openjdk:17-jdk-slim
 
 WORKDIR /app
 
-COPY add.py /app/
+COPY Hello.java /app/
 
-RUN apt-get update && apt-get install -y python3 python3-pip
+RUN javac Hello.java
 
-ENTRYPOINT ["python3"]
-CMD ["add.py"]
+ENTRYPOINT ["java"]
+CMD ["Hello"]
 
